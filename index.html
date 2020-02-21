@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Border Radius Generator</title>
+</head>
+
+<body>
+    <br>
+    <br>
+    <div class="boxDiv">
+        <input type="range" id="topLeft2"  value="0" min="0" max="100" onchange="updateBorderRadius()"hidden>
+        <input type="range" id="topLeft"   value="0" min="0" max="100" onchange="updateBorderRadius()">
+        <input type="range" id="topRight2" value="0" min="0" max="100" onchange="updateBorderRadius()"hidden>
+        <input type="range" id="topRight"  value="0" min="0" max="100" onchange="updateBorderRadius()">
+
+        <div id="box"></div>
+        
+        <input type="range" id="bottomRight2" value="0" min="0" max="100" onchange="updateBorderRadius()"hidden>
+        <input type="range" id="bottomRight"  value="0" min="0" max="100" onchange="updateBorderRadius()">
+        <input type="range" id="bottomLeft2"  value="0" min="0" max="100" onchange="updateBorderRadius()"hidden>
+        <input type="range" id="bottomLeft"   value="0" min="0" max="100" onchange="updateBorderRadius()">
+        <textarea readonly id="boxText"></textarea>
+        <a href="#" id="copy" onclick="copyToClipboard()">Copy to Clipboard</a>
+        
+        <div class="buttons">
+            <a href="#" id="simple" class="active" onclick="changeActive(this)">Simple</a><a href="#" id="complex" onclick="changeActive(this)">Complex</a>
+        </div>
+    </div>
+
+    <script>
+        updateBorderRadius()
+        function updateBoxText() {
+
+            boxText.innerHTML = 
+`{\n   border-top-left-radius: ${box.style.borderTopLeftRadius};
+   border-top-right-radius: ${box.style.borderTopRightRadius};
+   border-bottom-right-radius: ${box.style.borderBottomRightRadius};
+   border-bottom-left-radius: ${box.style.borderBottomLeftRadius};
+}`
+        }
+        function updateBorderRadius() {
+            if (simple.classList.contains("active")){
+                box.style.borderRadius = `${topLeft.value}% ${topRight.value}% ${bottomRight.value}% ${bottomLeft.value}%`
+            }else {
+                box.style.borderRadius = `${topLeft.value}% ${topRight.value}% ${bottomRight.value}% ${bottomLeft.value}%/${topLeft2.value}% ${topRight2.value}% ${bottomRight2.value}% ${bottomLeft2.value}% `
+            }
+            updateBoxText()
+        }
+
+        function changeActive(element){
+            if (element.classList.contains("active")) {return}
+            simple.classList.toggle("active")
+            complex.classList.toggle("active")
+            
+            topLeft2.hidden = !topLeft2.hidden
+            topRight2.hidden = !topRight2.hidden
+            bottomRight2.hidden = !bottomRight2.hidden
+            bottomLeft2.hidden = !bottomLeft2.hidden
+
+            updateBorderRadius()
+        }
+
+        function copyToClipboard(){
+            var copyText = document.getElementById("boxText");        
+            copyText.select(); 
+            copyText.setSelectionRange(0, 99999);
+            document.execCommand("copy");
+        }
+    </script>
+
+    <style>
+        
+        body{
+            background-color: dimgrey;
+        }
+        .boxDiv {
+            display: grid;
+            grid-template:
+                '... tlt ... trt ... buttons '50px
+                'tll box box box trr  ...    '120px
+                '... box box box ... text    '120px
+                'bll box box box brr text    '120px
+                '... blb ... brb ... copy    '50px/
+                120px 120px 120px 120px 120px auto;   
+        }
+
+        #topLeft {
+            grid-area: tlt;
+        }
+
+        #topRight {
+            grid-area: trt;
+            rotate: 180deg;
+        }
+
+        #bottomRight {
+            grid-area: brb;
+            rotate: 180deg;
+        }
+
+        #bottomLeft {
+            grid-area: blb;
+        }
+        #topLeft2{
+            grid-area: tll;
+            rotate: 90deg;
+            transform: translate(0,-40px);
+        }
+        #topRight2{
+            grid-area: trr;
+            rotate: 90deg;
+            transform: translate(0,35px);
+        }
+        #bottomRight2{
+            grid-area: brr;
+            rotate: -90deg;
+            transform: translate(0,-35px);
+        }
+        #bottomLeft2{
+            grid-area: bll;
+            rotate: -90deg;
+            transform: translate(0,40px);
+        }
+        
+        #boxText {
+            grid-area: text;
+            background-color: rgba(255, 255, 255, 0.089);
+            padding: 50px 30px ;
+            width: 390px;
+            border-radius: 10px;
+            font-size: 1rem;
+            resize: none;
+        }
+
+        #box {
+            width: 360px;
+            height: 360px;
+            background-color: cadetblue;
+            border: 2px solid black;
+            grid-area: box;
+
+        }
+
+        #simple{
+            border-radius: 8px  0 0 8px;
+        }
+
+        #simple:hover,#complex:hover{
+            background-color: rgb(199, 199, 199);
+        }
+
+        #complex{
+            border-radius: 0 8px 8px 0;
+        }
+
+        #simple,#complex{
+            padding: 10px;
+            padding-left:  30px;
+            padding-right: 30px;
+            color: rgb(97, 97, 97);
+            background-color: rgb(214, 214, 214);
+            text-decoration: none ;
+        }
+        .buttons{
+            grid-area: buttons
+        }
+
+        .active{
+            background-color: rgb(255, 255, 255) !important;
+            color: black !important;
+        }
+
+        .hidden{
+            display: none;
+        }
+
+        #copy{
+            grid-area: copy;
+            margin-top: 5px;
+            height: 1.1rem;
+            width: 330px;
+            padding: 10px 30px;
+            color:black;
+            background-color: rgba(255, 255, 255, 0.651);
+            border-radius: 10px;
+            text-decoration: none;
+            text-align: center;
+        }
+        
+        #copy:hover{
+            background-color: white;
+        }
+    </style>
+</body>
+
+</html>
