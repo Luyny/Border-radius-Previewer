@@ -23,13 +23,16 @@
         <input type="range" id="bottomLeft2"  value="0" min="0" max="100" onchange="updateBorderRadius()"hidden>
         <input type="range" id="bottomLeft"   value="0" min="0" max="100" onchange="updateBorderRadius()">
         <textarea readonly id="boxText"></textarea>
-        <a href="#" id="copy" onclick="copyToClipboard()">Copy to Clipboard</a>
+        <div id="copyButton">
+            <a href="#" id="copy" onclick="copyToClipboard()"><small>COPY TO CLIPBOARD</small></a>
+            <a href="#" id="mode" onclick="updateBoxText()"><small>DETAILED</small></a>
+        </div>
         
         <div class="buttons">
             <a href="#" id="simple" class="active" onclick="changeActive(this)">Simple</a><a href="#" id="complex" onclick="changeActive(this)">Complex</a>
         </div>
     </div>
-
+    
     <script>
         updateBorderRadius()
         function updateBoxText() {
@@ -40,7 +43,7 @@
    border-bottom-right-radius: ${box.style.borderBottomRightRadius};
    border-bottom-left-radius: ${box.style.borderBottomLeftRadius};
 }`
-        }
+        }        
         function updateBorderRadius() {
             if (simple.classList.contains("active")){
                 box.style.borderRadius = `${topLeft.value}% ${topRight.value}% ${bottomRight.value}% ${bottomLeft.value}%`
@@ -177,21 +180,34 @@
             display: none;
         }
 
-        #copy{
+        #copyButton{
             grid-area: copy;
+            margin-top: 15px;
+        }
+        #copy{
+            padding: 10px 82px;
+            color:black;
+            background-color: rgba(255, 255, 255, 0.651);
+            border-radius: 10px;
+            text-decoration: none;
+        }
+        
+        #copy:hover,#mode:hover{
+            background-color: white;
+        }
+
+        #mode{
+            grid-area: copy;
+            margin-left: auto;
             margin-top: 5px;
             height: 1.1rem;
-            width: 330px;
+            width: max-content;
             padding: 10px 30px;
             color:black;
             background-color: rgba(255, 255, 255, 0.651);
             border-radius: 10px;
             text-decoration: none;
             text-align: center;
-        }
-        
-        #copy:hover{
-            background-color: white;
         }
     </style>
 </body>
