@@ -1,0 +1,133 @@
+body{
+    background-color: dimgrey;
+}
+.boxDiv {
+    display: grid;
+    grid-template:
+        '... tlt ... trt ... buttons '50px
+        'tll box box box trr  ...    '120px
+        '... box box box ... text    '120px
+        'bll box box box brr text    '120px
+        '... blb ... brb ... copy    '50px/
+        120px 120px 120px 120px 120px auto;   
+}
+
+#topLeft {
+    grid-area: tlt;
+}
+
+#topRight {
+    grid-area: trt;
+    rotate: 180deg;
+}
+
+#bottomRight {
+    grid-area: brb;
+    rotate: 180deg;
+}
+
+#bottomLeft {
+    grid-area: blb;
+}
+#topLeft2{
+    grid-area: tll;
+    rotate: 90deg;
+    transform: translate(0,-40px);
+}
+#topRight2{
+    grid-area: trr;
+    rotate: 90deg;
+    transform: translate(0,35px);
+}
+#bottomRight2{
+    grid-area: brr;
+    rotate: -90deg;
+    transform: translate(0,-35px);
+}
+#bottomLeft2{
+    grid-area: bll;
+    rotate: -90deg;
+    transform: translate(0,40px);
+}
+
+#boxText {
+    grid-area: text;
+    background-color: rgba(255, 255, 255, 0.089);
+    padding: 50px 30px ;
+    width: 390px;
+    border-radius: 10px;
+    font-size: 1rem;
+    resize: none;
+}
+
+#box {
+    width: 360px;
+    height: 360px;
+    background-color: cadetblue;
+    border: 2px solid black;
+    grid-area: box;
+
+}
+
+#simple{
+    border-radius: 8px  0 0 8px;
+}
+
+#simple:hover,#complex:hover{
+    background-color: rgb(199, 199, 199);
+}
+
+#complex{
+    border-radius: 0 8px 8px 0;
+}
+
+#simple,#complex{
+    padding: 10px;
+    padding-left:  30px;
+    padding-right: 30px;
+    color: rgb(97, 97, 97);
+    background-color: rgb(214, 214, 214);
+    text-decoration: none ;
+}
+.buttons{
+    grid-area: buttons
+}
+
+.active{
+    background-color: rgb(255, 255, 255) !important;
+    color: black !important;
+}
+
+.hidden{
+    display: none;
+}
+
+#copyButton{
+    grid-area: copy;
+    margin-top: 15px;
+}
+#copy{
+    padding: 10px 82px;
+    color:black;
+    background-color: rgba(255, 255, 255, 0.651);
+    border-radius: 10px;
+    text-decoration: none;
+}
+
+#copy:hover,#mode:hover{
+    background-color: white;
+}
+
+#mode{
+    grid-area: copy;
+    margin-left: auto;
+    margin-top: 5px;
+    height: 1.1rem;
+    width: max-content;
+    padding: 10px 30px;
+    color:black;
+    background-color: rgba(255, 255, 255, 0.651);
+    border-radius: 10px;
+    text-decoration: none;
+    text-align: center;
+}
