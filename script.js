@@ -1,13 +1,16 @@
 
 updateBorderRadius()
 function updateBoxText() {
-
-    boxText.innerHTML =
-        `{\n   border-top-left-radius: ${box.style.borderTopLeftRadius};
+    if (mode.innerHTML == '<small>COMPACT</small>') {
+        boxText.innerHTML = `{\n   border-radius: ${box.style.borderRadius};\n}`
+    } else {
+        boxText.innerHTML =
+            `{\n   border-top-left-radius: ${box.style.borderTopLeftRadius};
    border-top-right-radius: ${box.style.borderTopRightRadius};
    border-bottom-right-radius: ${box.style.borderBottomRightRadius};
    border-bottom-left-radius: ${box.style.borderBottomLeftRadius};
 }`
+    }
 }
 function updateBorderRadius() {
     if (simple.classList.contains("active")) {
@@ -36,4 +39,13 @@ function copyToClipboard() {
     copyText.select();
     copyText.setSelectionRange(0, 99999);
     document.execCommand("copy");
+}
+
+function changeMode(){
+    if (mode.innerHTML == '<small>DETAILED</small>'){
+        mode.innerHTML = '<small>COMPACT</small>'
+    } else {
+        mode.innerHTML = '<small>DETAILED</small>'
+    }
+    updateBoxText()
 }
