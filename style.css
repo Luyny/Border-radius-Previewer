@@ -14,11 +14,11 @@ body{
 .boxDiv {
     display: grid;
     grid-template:
-        '... tlt ... trt ... buttons '50px
-        'tll box box box trr  ...    '120px
+        '... tlt ... trt ... buttons     '50px
+        'tll box box box trr text '120px
         '... box box box ... text    '120px
-        'bll box box box brr text    '120px
-        '... blb ... brb ... copy    '50px/
+        'bll box box box brr copy    '120px
+        '... blb ... brb ... ...    '50px/
         120px 120px 120px 120px 120px auto;   
 }
 
