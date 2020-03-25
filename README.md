@@ -9,7 +9,7 @@ Most of the time is used 4 values wich corresponds to top-left, top-right, botto
 
 But is possible to insert 8 values that allow to create more complex shapes.
 
-Explaning the buttons.
+Explaning the buttons. <br>
 <b>Simple</b> and <b>Complex</b> are used to change to the 4 values or 8 values input. <br>
 <b>Compact<b> show the shorthand version.<br>
 <b>Detailed</b> show properties separately. <br>
