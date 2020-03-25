@@ -4,6 +4,10 @@
     --box-color: #5d536b;
 }
 
+*{
+    color: var(--text-color);
+}
+
 body{
     background-color: dimgrey;
 }
