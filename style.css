@@ -24,40 +24,49 @@ body{
 
 #topLeft {
     grid-area: tlt;
+    margin: auto 0 10px 0;
 }
 
 #topRight {
     grid-area: trt;
-    rotate: 180deg;
+    rotate: -180deg;
+    margin: auto 0 10px 0;
 }
 
 #bottomRight {
     grid-area: brb;
     rotate: 180deg;
+    margin: 13px 0 auto 0;
+
 }
 
 #bottomLeft {
     grid-area: blb;
+    margin: 13px 0 auto 0;
 }
 #topLeft2{
     grid-area: tll;
     rotate: 90deg;
-    transform: translate(0,-40px);
+    margin:auto;
+    translate: 50px;
 }
 #topRight2{
     grid-area: trr;
     rotate: 90deg;
-    transform: translate(0,35px);
+    margin: auto;
+    translate:-45px;
 }
 #bottomRight2{
     grid-area: brr;
     rotate: -90deg;
-    transform: translate(0,-35px);
+    margin: auto;
+    translate: -45px;
 }
 #bottomLeft2{
     grid-area: bll;
     rotate: -90deg;
-    transform: translate(0,40px);
+    margin:auto;
+    translate: 50px;
 }
 
 #boxText {
@@ -84,7 +93,7 @@ body{
 }
 
 #simple:hover,#complex:hover{
-    background-color: rgb(199, 199, 199);
+    opacity: 0.8;
 }
 
 #complex{
@@ -92,25 +101,23 @@ body{
 }
 
 #simple,#complex{
-    padding: 10px;
-    padding-left:  30px;
-    padding-right: 30px;
-    color: var(--text-color);
-    background-color:#989fce;
+    padding: 10px 0 ;
+    background-color:#9cb3c9;
     text-decoration: none ;
+    width: 227px;
+    height: min-content;
+    text-align: center;
+    margin:   auto 0 5px 0;
 }
 .buttons{
-    grid-area: buttons
+    grid-area: buttons;
+    display: flex;
 }
 
 .active{
-    background-color: rgb(255, 255, 255) !important;
-    color: black !important;
+    background-color: var(--button-color) !important;
 }
 
-.hidden{
-    display: none;
-}
 
 #copyButton{
     grid-area: copy;
@@ -118,14 +125,13 @@ body{
 }
 #copy{
     padding: 10px 82px;
-    color: var(--text-color);
     background-color: var(--button-color);
     border-radius: 10px;
     text-decoration: none;
 }
 
 #copy:hover,#mode:hover{
-    background-color: white;
+    opacity: 0.8;
 }
 
 #mode{
@@ -135,9 +141,32 @@ body{
     height: 1.1rem;
     width: max-content;
     padding: 10px 30px;
-    color: var(--text-color);
     background-color: var(--button-color);
     border-radius: 10px;
     text-decoration: none;
     text-align: center;
 }
+
+input[type=range] {
+    -webkit-appearance: none; 
+    appearance: none;
+    width: 100%;
+    height: 7px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.8;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+  }
+  
+  input[type=range]:hover {
+    opacity: 1; 
+  }
+  
+  input[type=range]::-moz-range-thumb, input[type=range]::-webkit-slider-thumb {
+    width: 15px; 
+    height: 15px; 
+    background: var(--button-color); 
+    cursor: move; 
+    border-radius: 10px;
+  }
