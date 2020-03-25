@@ -1,8 +1,8 @@
-# Border-radius-Previewer
+# <a href="https://luyny.github.io/Border-radius-Previewer/"> Result can be seen here</a>
 
 <a href="https://github.com/florinpop17/app-ideas"> Idea taken from this repository</a>
 
-<a href="https://luyny.github.io/Border-radius-Previewer/"> Result can be seen here</a>
+
 
 The <code>border-radius</code> property defines the radius of the element's corners.
 Most of the time is used 4 values wich corresponds to top-left, top-right, bottom-right and bottom-left.
