@@ -12,17 +12,17 @@
     <br>
     <br>
     <div class="boxDiv">
-        <input type="range" id="topLeft2"  value="0" min="0" max="100" onchange="updateBorderRadius()"hidden>
-        <input type="range" id="topLeft"   value="0" min="0" max="100" onchange="updateBorderRadius()">
-        <input type="range" id="topRight2" value="0" min="0" max="100" onchange="updateBorderRadius()"hidden>
-        <input type="range" id="topRight"  value="0" min="0" max="100" onchange="updateBorderRadius()">
+        <input type="range" id="topLeft2"  value="0" min="0" max="100" oninput="updateBorderRadius()"hidden>
+        <input type="range" id="topLeft"   value="0" min="0" max="100" oninput="updateBorderRadius()">
+        <input type="range" id="topRight2" value="0" min="0" max="100" oninput="updateBorderRadius()"hidden>
+        <input type="range" id="topRight"  value="0" min="0" max="100" oninput="updateBorderRadius()">
 
         <div id="box"></div>
         
-        <input type="range" id="bottomRight2" value="0" min="0" max="100" onchange="updateBorderRadius()"hidden>
-        <input type="range" id="bottomRight"  value="0" min="0" max="100" onchange="updateBorderRadius()">
-        <input type="range" id="bottomLeft2"  value="0" min="0" max="100" onchange="updateBorderRadius()"hidden>
-        <input type="range" id="bottomLeft"   value="0" min="0" max="100" onchange="updateBorderRadius()">
+        <input type="range" id="bottomRight2" value="0" min="0" max="100" oninput="updateBorderRadius()"hidden>
+        <input type="range" id="bottomRight"  value="0" min="0" max="100" oninput="updateBorderRadius()">
+        <input type="range" id="bottomLeft2"  value="0" min="0" max="100" oninput="updateBorderRadius()"hidden>
+        <input type="range" id="bottomLeft"   value="0" min="0" max="100" oninput="updateBorderRadius()">
         <textarea readonly id="boxText"></textarea>
         <div id="copyButton">
             <a href="#" id="copy" onclick="copyToClipboard()"><small>COPY TO CLIPBOARD</small></a>
