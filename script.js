@@ -1,7 +1,7 @@
 
 updateBorderRadius()
 function updateBoxText() {
-    if (mode.innerHTML == '<small>COMPACT</small>') {
+    if (mode.innerHTML == 'Compact') {
         boxText.innerHTML = `{\n   border-radius: ${box.style.borderRadius};\n}`
     } else {
         boxText.innerHTML =
@@ -42,10 +42,10 @@ function copyToClipboard() {
 }
 
 function changeMode(){
-    if (mode.innerHTML == '<small>DETAILED</small>'){
-        mode.innerHTML = '<small>COMPACT</small>'
+    if (mode.innerHTML == 'Detailed'){
+        mode.innerHTML = 'Compact'
     } else {
-        mode.innerHTML = '<small>DETAILED</small>'
+        mode.innerHTML = 'Detailed'
     }
     updateBoxText()
 }
