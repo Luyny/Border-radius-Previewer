@@ -11,15 +11,21 @@
 body{
     background-color: #272838;
 }
+.content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .boxDiv {
     display: grid;
     grid-template:
-        '... tlt ... trt ... buttons     '50px
-        'tll box box box trr text '120px
-        '... box box box ... text    '120px
-        'bll box box box brr copy    '120px
-        '... blb ... brb ... ...    '50px/
-        120px 120px 120px 120px 120px auto;   
+        '...   tlt   ...   trt   ...   '50px
+        'tll   box   box   box   trr   '120px
+        '...   box   box   box   ...   '120px
+        'bll   box   box   box   brr   '120px
+        '...   blb   ...   brb   ...   '50px/
+        120px 120px 120px 120px 120px ;   
 }
 
 #topLeft {
@@ -70,13 +76,14 @@ body{
 }
 
 #boxText {
-    grid-area: text;
     background-color: var(--box-color);
-    padding: 50px 30px ;
-    width: 390px;
-    border-radius: 10px;
+    border-color:transparent;
+    padding: 80px 0 0 10px ;
     font-size: 1rem;
     resize: none;
+    flex: 1;
+    text-justify: auto;
+    border-radius: 3px;
 }
 
 #box {
@@ -86,65 +93,6 @@ body{
     border: 2px solid var(--button-color);
     grid-area: box;
 
-}
-
-#simple{
-    border-radius: 8px  0 0 8px;
-}
-
-#simple:hover,#complex:hover{
-    opacity: 0.8;
-}
-
-#complex{
-    border-radius: 0 8px 8px 0;
-}
-
-#simple,#complex{
-    padding: 10px 0 ;
-    background-color:#9cb3c9;
-    text-decoration: none ;
-    width: 227px;
-    height: min-content;
-    text-align: center;
-    margin:   auto 0 5px 0;
-}
-.buttons{
-    grid-area: buttons;
-    display: flex;
-}
-
-.active{
-    background-color: var(--button-color) !important;
-}
-
-
-#copyButton{
-    grid-area: copy;
-    margin-top: 15px;
-}
-#copy{
-    padding: 10px 82px;
-    background-color: var(--button-color);
-    border-radius: 10px;
-    text-decoration: none;
-}
-
-#copy:hover,#mode:hover{
-    opacity: 0.8;
-}
-
-#mode{
-    grid-area: copy;
-    margin-left: auto;
-    margin-top: 5px;
-    height: 1.1rem;
-    width: max-content;
-    padding: 10px 30px;
-    background-color: var(--button-color);
-    border-radius: 10px;
-    text-decoration: none;
-    text-align: center;
 }
 
 input[type=range] {
@@ -157,16 +105,63 @@ input[type=range] {
     opacity: 0.8;
     -webkit-transition: .2s;
     transition: opacity .2s;
-  }
-  
-  input[type=range]:hover {
+    border-radius: 3px;
+}
+
+input[type=range]:hover {
     opacity: 1; 
-  }
-  
-  input[type=range]::-moz-range-thumb, input[type=range]::-webkit-slider-thumb {
+}
+
+input[type=range]::-moz-range-thumb, input[type=range]::-webkit-slider-thumb {
     width: 15px; 
     height: 15px; 
     background: var(--button-color); 
     cursor: move; 
     border-radius: 10px;
-  }
+}
+
+.buttons{
+    margin: 50px 0;
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    height: 364px;
+}
+
+
+.buttons a{
+    background-color: #fff;
+}
+
+.buttons div{
+    display: flex;
+    flex-direction: row;
+}
+
+.buttons div a{
+    margin: 3px 1px;
+    width: 50%;
+    padding: 8px 0;
+    text-align: center;
+    background-color: var(--button-color);
+    border-radius: 3px;
+    text-decoration: none;
+    transition: 0.2s;
+}
+
+.buttons div:first-child a{
+    background-color:#9daab6;
+}
+.active{ 
+     background-color: var(--button-color) !important; 
+}
+
+.buttons div a:hover{
+    opacity: 0.8;
+}
+
+@media screen and (max-width: 1000px){
+    .content{
+        flex-direction: column;
+    }
+}
