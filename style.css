@@ -35,13 +35,13 @@ body{
 
 #topRight {
     grid-area: trt;
-    rotate: -180deg;
+    transform: rotate(-180deg);
     margin: auto 0 10px 0;
 }
 
 #bottomRight {
     grid-area: brb;
-    rotate: 180deg;
+    transform: rotate(180deg);
     margin: 13px 0 auto 0;
 
 }
@@ -52,34 +52,30 @@ body{
 }
 #topLeft2{
     grid-area: tll;
-    rotate: 90deg;
+    transform:translate(50px) rotate(90deg);
     margin:auto;
-    translate: 50px;
 }
 #topRight2{
     grid-area: trr;
-    rotate: 90deg;
+    transform:translate(-45px) rotate(90deg);
     margin: auto;
-    translate:-45px;
 }
 #bottomRight2{
     grid-area: brr;
-    rotate: -90deg;
+    transform:translate(-45px) rotate(-90deg);
     margin: auto;
-    translate: -45px;
 }
 #bottomLeft2{
     grid-area: bll;
-    rotate: -90deg;
+    transform:translate(50px) rotate(-90deg);
     margin:auto;
-    translate: 50px;
 }
 
 #boxText {
     background-color: var(--box-color);
     border-color:transparent;
     padding: 80px 0 0 10px ;
-    font-size: 1rem;
+    font-size: 16px;
     resize: none;
     flex: 1;
     text-justify: auto;
@@ -112,7 +108,19 @@ input[type=range]:hover {
     opacity: 1; 
 }
 
-input[type=range]::-moz-range-thumb, input[type=range]::-webkit-slider-thumb {
+/* Firefox */
+input[type=range]::-moz-range-thumb{
+    -webkit-appearance: none;
+    width: 15px; 
+    height: 15px; 
+    background: var(--button-color); 
+    cursor: move; 
+    border-radius: 10px;
+}
+
+/* Chrome */
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
     width: 15px; 
     height: 15px; 
     background: var(--button-color); 
